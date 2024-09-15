@@ -9,7 +9,7 @@ Semester project for the course 'Information-Systems-Analysis-and-Design' during
 
 ## Introduction
 
-This project compares Ray and PyTorch, two well-known Python scaling frameworks. Open-source frameworks like PyTorch and Ray make it easier to run Python code in parallel for distributed computing applications. In this comparison, their performance, scalability, and efficiency in managing massive data analytics and machine learning workloads are assessed.
+This project compares Ray and PyTorch, two well-known Python scaling frameworks, for big data analysis. Open-source frameworks like PyTorch and Ray make it easier to run Python code in parallel for distributed computing applications. In this comparison, their performance, scalability, and efficiency in managing massive data analytics and machine learning workloads are assessed.
 
 ### Background
 Python has emerged as a popular programming language for data analysis and machine learning due to its simplicity, versatility, and extensive ecosystem of libraries and frameworks. However, as datasets continue to grow in size and complexity, traditional single-machine solutions become inadequate for processing and analyzing such data efficiently. This has led to the development of distributed computing frameworks like Ray and PyTorch, which enable parallel execution across multiple nodes or cores, thereby allowing users to scale their data analysis and ML workflows to handle large-scale datasets.
