@@ -9,9 +9,9 @@ from xgboost import XGBClassifier
 from sklearn.metrics import accuracy_score
 
 def load_data(csv_file):
-    #Load data from a CSV file.
+    """Load data from a CSV file."""
     df = pd.read_csv(csv_file)
-    X = df.drop('target', axis=1).values  # Features
+    X = df.drop('target', axis=1).values  # Features (assuming the target column is named 'target')
     y = df['target'].values  # Target labels
     return X, y
 
