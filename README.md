@@ -4,8 +4,8 @@ Semester project for the course 'Information-Systems-Analysis-and-Design' during
 
 ## Team Members
 
-- **Giannouchou Olga**
-- **Aikaterini Stavrou**
+- **Giannouchou Olga (03119613)**
+- **Aikaterini Stavrou (03119932)**
 
 ## Introduction
 
