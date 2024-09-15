@@ -54,7 +54,7 @@ To run the Python scripts, follow these steps:
    - **For Ray:**
      - Start the head node (master) using the command:
        ```bash
-       ray start --head --dashboard-host "0.0.0.0"
+       ray start --head"
        ```
      - Connect to the cluster with a worker node using:
        ```bash
