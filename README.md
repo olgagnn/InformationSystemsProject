@@ -9,7 +9,7 @@ Team project for the course 'Information-Systems-Analysis-and-Design' during the
 
 ## Introduction
 
-Τhis project compares Ray and PyTorch, two well-known Python scaling frameworks. Open-source frameworks like PyTorch and Ray make it easier to run Python code in parallel for distributed computing applications. In this comparison, their performance, scalability, and efficiency in managing massive data analytics and machine learning workloads are all intended to be extensively assessed.
+This project compares Ray and PyTorch, two well-known Python scaling frameworks. Open-source frameworks like PyTorch and Ray make it easier to run Python code in parallel for distributed computing applications. In this comparison, their performance, scalability, and efficiency in managing massive data analytics and machine learning workloads are assessed.
 
 ### Background
 Python has emerged as a popular programming language for data analysis and machine learning due to its simplicity, versatility, and extensive ecosystem of libraries and frameworks. However, as datasets continue to grow in size and complexity, traditional single-machine solutions become inadequate for processing and analyzing such data efficiently. This has led to the development of distributed computing frameworks like Ray and PyTorch, which enable parallel execution across multiple nodes or cores, thereby allowing users to scale their data analysis and ML workflows to handle large-scale datasets.
@@ -35,21 +35,36 @@ To run the Python scripts, follow these steps:
 
 3. **Data Loading and Preprocessing:**
    - Generate test data using the `data.py` function:
-     ```
+     ```bash
      python3 data.py --num_samples <num_samples> --num_features <features>
      ```
 
 4. **Classification:**
-   - For PyTorch:
-     - Run the `torchrun --nproc_per_node=1 --nnodes=3 --node_rank=0 --master_addr="<IP>" --master_port=<port> <script_name>` command to initiate the PyTorch distributed cluster.
-     - Connect to the worker VMs and run the script using `torchrun --nproc_per_node=1 --nnodes=3 --node_rank=<n> --master_addr="<IP>" --master_port=<port> <script_name>`.
+   - **For PyTorch:**
+     - Run the following command to initiate the PyTorch distributed cluster on the master node:
+       ```bash
+       torchrun --nproc_per_node=1 --nnodes=3 --node_rank=0 --master_addr="<master_IP>" --master_port=<master_port> <script_name>
+       ```
+     - Connect to the worker VMs and execute the same script with appropriate node rank:
+       ```bash
+       torchrun --nproc_per_node=1 --nnodes=3 --node_rank=<worker_rank> --master_addr="<master_IP>" --master_port=<master_port> <script_name>
+       ```
+     - In this setup, replace `<master_IP>`, `<master_port>`, `<worker_rank>`, and `<script_name>` with the actual values. The `node_rank` is 0 for the master and increments for each worker node.
 
-   - For Ray:
-     - Initiate the cluster with `ray start --head`.
-     - Connect to the cluster with a worker node using `ray start --address='ip_address:port'`.
-     - Run the Ray `.py` file.
+   - **For Ray:**
+     - Start the head node (master) using the command:
+       ```bash
+       ray start --head --dashboard-host "0.0.0.0"
+       ```
+     - Connect to the cluster with a worker node using:
+       ```bash
+       ray start --address='<head_node_IP>:<port>'
+       ```
+     - Run the Ray `.py` script on the master node, replacing `<head_node_IP>` and `<port>` with the actual values of the master node and Ray cluster port.
 
 ## References
 
 - [Ray Documentation](https://docs.ray.io/)
 - [PyTorch Documentation](https://pytorch.org/)
+
+**Note:** Remember to replace placeholder parameters such as `<IP>`, `<port>`, `<rank>`, and `<script_name>` with actual values during execution for both frameworks.
