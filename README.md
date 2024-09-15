@@ -1,6 +1,6 @@
 # Python Scaling Frameworks for Big Data Analysis and Machine Learning: A Comparison of Ray and PyTorch
 
-Team project for the course 'Information-Systems-Analysis-and-Design' during the 9th semester at NTUA in the School of Electrical and Computer Engineering under the supervision of Professor Dimitrios Tsoumakos.
+Semester project for the course 'Information-Systems-Analysis-and-Design' during the 9th semester at NTUA in the School of Electrical and Computer Engineering under the supervision of Professor Dimitrios Tsoumakos.
 
 ## Team Members
 
